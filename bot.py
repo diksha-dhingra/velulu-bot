@@ -1,28 +1,29 @@
 import os
-from google import genai
-from google.genai import types
+from groq import Groq
 from personality import SYSTEM_PROMPT
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-# In-memory chat sessions — key: sender phone number, value: chat object
+# In-memory chat history — key: sender phone number, value: list of messages
 chat_sessions: dict = {}
 
 
 def get_reply(sender: str, user_message: str) -> str:
     if sender not in chat_sessions:
-        chat_sessions[sender] = client.chats.create(
-            model="gemini-2.0-flash-lite",
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT
-            )
-        )
+        chat_sessions[sender] = [
+            {"role": "system", "content": SYSTEM_PROMPT}
+        ]
 
-    chat = chat_sessions[sender]
+    chat_sessions[sender].append({"role": "user", "content": user_message})
 
     try:
-        response = chat.send_message(user_message)
-        return response.text
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=chat_sessions[sender]
+        )
+        reply = response.choices[0].message.content
+        chat_sessions[sender].append({"role": "assistant", "content": reply})
+        return reply
     except Exception as e:
-        print(f"Gemini error for {sender}: {e}")
+        print(f"Groq error for {sender}: {e}")
         return "Kuch gadbad ho gayi, thodi der baad try karo."
