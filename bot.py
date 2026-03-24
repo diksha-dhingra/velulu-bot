@@ -12,7 +12,7 @@ chat_sessions: dict = {}
 def get_reply(sender: str, user_message: str) -> str:
     if sender not in chat_sessions:
         chat_sessions[sender] = client.chats.create(
-            model="gemini-1.5-flash",
+            model="gemini-2.0-flash-lite",
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_PROMPT
             )
