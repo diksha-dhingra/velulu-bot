@@ -15,7 +15,7 @@ def get_reply(sender: str, user_message: str) -> str:
 
     chat_sessions[sender].append({"role": "user", "content": user_message})
 
-    # Keep history limited to last 20 messages to avoid token overflow
+    # Keep history limited to last 50 messages to avoid token overflow
     if len(chat_sessions[sender]) > 51:  # 1 system + 50 messages
         chat_sessions[sender] = [chat_sessions[sender][0]] + chat_sessions[sender][-50:]
 
