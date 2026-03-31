@@ -31,6 +31,10 @@ def verify_webhook():
 
 
 # ── Incoming messages ────────────────────────────────────────────────────────
+@app.route("/", methods=["GET"])
+def health_check():
+    return "Sparky is alive! 🚀", 200
+
 @app.route("/webhook", methods=["POST"])
 def webhook():
     data = request.get_json()
