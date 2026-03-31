@@ -38,10 +38,11 @@ Type */help* to see what I can do!"""
 HELP_MESSAGE = f"""
 🤖 *{BOT_NAME} — Command List*
 
-/start  - Show welcome message
-/help   - Show this menu
-/reset  - Clear conversation
-/about  - Know more about me (spoiler: I'm great)
+/start       - Show welcome message
+/help        - Show this menu
+/reset       - Clear conversation
+/about       - Know more about me
+/song [name] - Get YouTube & Spotify link 🎵
 
 Or just chat — I don't bite. Much. 😄
 """
