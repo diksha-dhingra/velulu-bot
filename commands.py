@@ -104,7 +104,7 @@ def add_task(sender: str, task: str) -> str:
 def get_tasks(sender: str) -> str:
     tasks = todo_lists.get(sender, [])
     if not tasks:
-        return "No tasks! Add one with `/add buy milk`"
+        return "No tasks! Enjoyyy 😁🎉"
     lines = ["📋 Your Tasks:\n"]
     for i, t in enumerate(tasks, 1):
         status = "✅" if t["done"] else "⬜"
