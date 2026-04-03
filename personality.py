@@ -37,6 +37,7 @@ HELP_MESSAGE = f"""
 
 *📋 Tasks*
 */add (task)* -> add task.
+*/remove (task number)* -> remove any task.
 */mytasks* -> view tasks.
 */done (task number)* -> mark completed task.
 

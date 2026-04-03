@@ -12,6 +12,8 @@ def is_command(message: str) -> bool:
     for cmd in ["/song", "/weather", "/add", "/done", "/remind", "/timer"]:
         if msg.startswith(cmd):
             return True
+        if msg.startswith("/remove"):
+            return True
     return msg in ["/help", "/reset", "/about", "/start", "/joke", "/mytasks"]
 
 
@@ -48,7 +50,13 @@ def handle_command(message: str, sender: str, chat_sessions: dict) -> str:
             num = int(msg.split()[1]) - 1
             return complete_task(sender, num)
         except:
-            return "Number likho! `/done 1`"
+            return "Enter task number! `/done 1`"
+    elif cmd == "/remove":
+        try:
+            num = int(msg.split()[1]) - 1
+            return remove_task(sender, num)
+        except:
+            return "Enter task number! `/remove 1`"
     elif cmd == "/remind":
         return set_reminder(sender, msg[7:].strip())
     elif cmd == "/timer":
@@ -110,6 +118,14 @@ def complete_task(sender: str, index: int) -> str:
         return "Invalid task number!"
     tasks[index]["done"] = True
     return f"✅ Done: {tasks[index]['task']}"
+
+def remove_task(sender: str, index: int) -> str:
+    tasks = todo_lists.get(sender, [])
+    if not tasks or index < 0 or index >= len(tasks):
+        return "Invalid task number!"
+    removed = tasks.pop(index)
+    return f"🗑 Removed: {removed['task']}"
+
 
 
 # ── Time Parser ───────────────────────────────────────────────────────────────
