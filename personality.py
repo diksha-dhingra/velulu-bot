@@ -25,20 +25,32 @@ Ask me anything. I'll answer. Probably with sarcasm. But I'll answer. 😏
 Type */help* to see what I can do!"""
 
 HELP_MESSAGE = f"""
-🤖 *{BOT_NAME} — Commands*
+*{BOT_NAME} Commands* 🤖
 
-/joke              - Random joke 😄
-/weather [city]    - Weather update 🌤
-/add [task]        - Add to-do task
-/mytasks           - View your tasks
-/done [number]     - Mark task done ✅
-/remind [time] [msg] - Set reminder ⏰
-/timer [time]      - Set a timer ⏰
-/song [name]       - Get song links 🎵
-/reset             - Clear chat
-/about             - About me
+*🎯 General*
+/start -> welcome message
+/about -> about me
+/reset -> clear chat
 
-Just chat normally for AI replies!
+*🌤 Info*
+/weather (place) -> get weather updates of any place.
+
+*📋 Tasks*
+/add (task) -> add task
+/mytasks -> view tasks
+/done (task number) -> complete task
+
+*⏰ Timers*
+/remind (time with reason)
+/timer (time)
+
+*🎵 Music*
+/song (song name)
+
+*😄 Fun*
+/joke -> random joke
+
+_Or just chat normally!_
 """
 
 ABOUT_MESSAGE = f"""
