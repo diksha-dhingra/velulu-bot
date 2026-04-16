@@ -58,8 +58,8 @@ def get_reply(sender: str, user_message: str) -> str:
 
     chat_sessions[sender].append({"role": "user", "content": enriched_message})
 
-    if len(chat_sessions[sender]) > 51:
-        chat_sessions[sender] = [chat_sessions[sender][0]] + chat_sessions[sender][-50:]
+    if len(chat_sessions[sender]) > 21:
+        chat_sessions[sender] = [chat_sessions[sender][0]] + chat_sessions[sender][-20:]
 
     try:
         response = client.chat.completions.create(
