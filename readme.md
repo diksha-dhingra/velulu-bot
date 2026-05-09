@@ -15,7 +15,7 @@ A smart, friendly WhatsApp bot powered by **Groq (LLaMA 3.3 70B)** with live web
 - 📋 **To-Do List** — Add, view, complete, and remove tasks
 - 🌤 **Weather** — Live weather for any city
 - 😄 **Jokes** — Random jokes on demand
-- 💬 **50-message memory** — Sparky remembers your conversation context
+- 💬 **20-message memory** — Sparky remembers your conversation context
 
 ---
 
@@ -39,7 +39,7 @@ Sparky-Bot/
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/Sparky-Bot.git
+git clone https://github.com/diksha-dhingra/Sparky-Bot
 cd Sparky-Bot
 ```
 
